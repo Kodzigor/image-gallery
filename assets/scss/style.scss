@@ -27,6 +27,11 @@
       outline: none;
       border-radius: 20px;
       padding: 12px;
+
+      &:focus {
+        outline: 2px solid red;
+        box-shadow: 3px 2px 6px 1px red;
+      }
     }
 
     & .icon__search,
@@ -55,12 +60,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
     row-gap: 25px;
-    padding: 20px 0;
+    padding: 50px 0;
   }
 
   &__image {
     width: 31%;
-    height: fit-content;
+    height: 300px;
   }
 
   &__footer {
