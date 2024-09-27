@@ -5,10 +5,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Gallery by Igor Kodzhebash</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+
+  <div class="app">
+    <header class="app__header">
+      <h1>Image Gallery</h1>
+
+      <div class="app__search">
+        <input type="text" name="search" id="search" placeholder="Search...">
+        <svg class="icon icon__small icon__search active">
+          <use xlink:href="./assets/icons/sprite.svg#search"></use>
+        </svg>
+        <svg class="icon icon__small icon__clear">
+          <use xlink:href="./assets/icons/sprite.svg#xmark"></use>
+        </svg>
+      </div>
+    </header>
+
+    <main class="app__main">
+    </main>
+
+    <footer class="app__footer">
+      <a href="https://github.com/Kodzigor" target="_blank">
+        <svg class="icon app__icon ">
+          <use xlink:href="./assets/icons/sprite.svg#github"></use>
+        </svg>
+      </a>
+      <span>2024</span>
+      <a href="https://rs.school/courses/javascript-preschool-ru" target="_blank">
+        <svg class="icon app__icon">
+          <use xlink:href="./assets/icons/sprite.svg#rs-icon"></use>
+        </svg>
+      </a>
+    </footer>
+
+  </div>
 
 </body>
 
