@@ -3,11 +3,12 @@ const imagesContainer = document.querySelector('.app__main');
 const searchIcon = document.querySelector('.icon__search');
 const clearIcon = document.querySelector('.icon__clear');
 let searchString = 'summer';
+let request = '';
 
 function getSearchData() {
   if (searchField.value) {
     searchString = searchField.value.toLowerCase();
-    searchField.value = '';
+    searchField.focus();
   }
 
   return searchString;
@@ -17,16 +18,9 @@ function renderImage(data) {
   imagesContainer.innerHTML = '';
 
   data.forEach(el => {
-    console.log(el.urls.full);
-
     let image = new Image();
-    // image.setAttribute.alt = `${el.alt_description}`;
     image.classList.add('app__image');
     image.setAttribute('src', el.urls.small);
-
-    // image.addEventListener('load', () => {
-    //   image.setAttribute('src', el.urls.full);
-    // });
 
     imagesContainer.append(image);
   });
@@ -38,18 +32,44 @@ async function makeRequest() {
   const data = await res.json();
 
   if (data.results.length === 0) {
-    console.log(`We can't find any photo`);
     imagesContainer.textContent = `We can't find any photo`;
   } else {
     let renderData = data.results;
 
     renderImage(renderData);
-    console.log(renderData);
   }
 }
 
-// searchIcon.addEventListener('click', getSearchData);
-document.addEventListener('DOMContentLoaded', makeRequest);
-searchIcon.addEventListener('click', makeRequest);
+function clearSearchField() {
+  if (searchField.value !== 0) {
+    searchField.value = '';
+    searchIcon.classList.add('active');
+    clearIcon.classList.remove('active');
+  }
+}
 
-// makeRequest();
+function toggleSearchFieldIcon() {
+  if (searchField.value.length !== 0) {
+    searchIcon.classList.remove('active');
+    clearIcon.classList.add('active');
+  } else {
+    searchIcon.classList.add('active');
+    clearIcon.classList.remove('active');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', makeRequest);
+window.addEventListener('load', () => {
+  searchField.focus();
+});
+searchField.addEventListener('input', toggleSearchFieldIcon);
+clearIcon.addEventListener('click', clearSearchField);
+searchIcon.addEventListener('click', e => {
+  e.preventDefault();
+  makeRequest();
+});
+window.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    makeRequest();
+  }
+});

@@ -27,19 +27,31 @@
       outline: none;
       border-radius: 20px;
       padding: 12px;
+      transition: all 0.3s;
 
       &:focus {
-        outline: 2px solid red;
-        box-shadow: 3px 2px 6px 1px red;
+        outline: 2px solid #504d4d;
+        box-shadow: 2px 0px 15px 1px #504d4d;
       }
     }
 
-    & .icon__search,
-    & .icon__clear {
+    & .icon__search {
       display: none;
       position: absolute;
       top: calc(50% - 16px);
       right: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & .icon__clear {
+      display: none;
+      position: absolute;
+      top: calc(50% - 18px);
+      right: 0;
+
       &:hover {
         cursor: pointer;
       }
@@ -65,7 +77,7 @@
 
   &__image {
     width: 31%;
-    height: 300px;
+    height: 220px;
   }
 
   &__footer {
