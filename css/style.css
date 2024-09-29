@@ -90,6 +90,9 @@
   width: 31%;
   height: 220px;
 }
+.app__image:hover {
+  cursor: pointer;
+}
 .app__footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,4 +104,25 @@
 }
 .app__footer span {
   font-size: 18px;
+}
+.app__overlay {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(100, 99, 99, 0.6);
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.app__overlay.closed {
+  display: none;
+}
+.app__overlay-image {
+  position: absolute;
+  z-index: 20;
+  width: 70%;
+  height: 90%;
+  top: 5%;
+  left: 15%;
 }/*# sourceMappingURL=style.css.map */

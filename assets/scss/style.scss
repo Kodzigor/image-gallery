@@ -78,6 +78,10 @@
   &__image {
     width: 31%;
     height: 220px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__footer {
@@ -87,6 +91,30 @@
 
     & span {
       font-size: 18px;
+    }
+  }
+
+  &__overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #646363, $alpha: 0.6);
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    &.closed {
+      display: none;
+    }
+
+    &-image {
+      position: absolute;
+      z-index: 20;
+      width: 70%;
+      height: 90%;
+      top: calc(50% - 45%);
+      left: calc(50% - 35%);
     }
   }
 }

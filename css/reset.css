@@ -122,6 +122,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-size: 20px;
+  position: relative;
 }
 
 ol,
